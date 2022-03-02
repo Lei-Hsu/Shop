@@ -1,5 +1,6 @@
-import Head from 'next/head';
 import React from 'react';
+
+import Head from 'next/head';
 
 function Home() {
   return (
@@ -11,8 +12,8 @@ function Home() {
 
       <div>
         <h1 className="mb-2 text-2xl">Next.js Template</h1>
-        <div>1. Next.js</div>
-        <div>2. TypeScript</div>
+        <div className="text-pumpkin">1. Next.js</div>
+        <div className="text-yale-blue">2. TypeScript</div>
         <div>3. Redux toolkit and Saga</div>
         <div>4. Tailwind Css</div>
       </div>
