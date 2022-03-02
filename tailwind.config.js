@@ -5,6 +5,9 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      'white': "#FFFFFF",
       'main-blue': '#1071FF',
       'yale-blue': '#004796',
       'denim': '#0E5DC1',

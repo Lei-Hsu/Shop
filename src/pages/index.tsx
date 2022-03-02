@@ -2,6 +2,8 @@ import React from 'react';
 
 import Head from 'next/head';
 
+import Header from '@Components/header';
+
 function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -9,7 +11,7 @@ function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Header />
       <div>
         <h1 className="mb-2 text-2xl">Next.js Template</h1>
         <div className="text-pumpkin">1. Next.js</div>
