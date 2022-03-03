@@ -13,8 +13,8 @@ interface HeaderProps {
 const Header = () => {
   return (
     <div className="absolute top-0 right-0 w-screen">
-      <div className=" h-10 w-full bg-light-blue"></div>
-      <div className="flex h-16 w-full items-center justify-between bg-white p-2">
+      <div className=" h-10 w-full bg-light-blue px-10"></div>
+      <div className="flex h-16 w-full items-center justify-between bg-white px-10">
         {/* todo:logo image */}
         <div className="h-10 w-[300px] bg-international-orange"></div>
         <div className="flex h-10 w-[550px] items-center justify-start space-x-2 rounded-md border-2 border-platinum pl-4">
@@ -23,7 +23,7 @@ const Header = () => {
         </div>
         <Button text={'Quick Order Form'} color="blue" />
       </div>
-      <div className="h-16 w-full bg-light-blue"></div>
+      <div className="h-16 w-full bg-light-blue px-10"></div>
     </div>
   );
 };
