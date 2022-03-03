@@ -18,7 +18,9 @@
     "paths": {
       "@Redux/*": ["redux/*"],
       "@Hooks/*": ["hooks/*"],
-      "@Pages/*": ["pages/*"]
+      "@Pages/*": ["pages/*"],
+      "@Components/*": ["components/*"],
+      "@Images/*": ["images/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

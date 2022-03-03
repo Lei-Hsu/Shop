@@ -30,6 +30,10 @@
       "orderLevel": 40
     },
     {
+      "regex": "^@Components",
+      "orderLevel": 45
+    },
+    {
       "regex": "^@Axios",
       "orderLevel": 50
     },
