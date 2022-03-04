@@ -11,7 +11,6 @@ function Home() {
         <title>Shop</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <div></div>
     </div>
   );
