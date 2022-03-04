@@ -12,7 +12,7 @@ interface HeaderProps {
 
 const Header = () => {
   return (
-    <div className="w-screen">
+    <div className="max-w-screen">
       <div className=" h-10 w-full bg-light-blue px-10"></div>
       <div className="flex h-16 w-full items-center justify-between bg-white px-10">
         {/* todo:logo image */}
