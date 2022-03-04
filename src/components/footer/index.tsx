@@ -11,7 +11,13 @@ const Footer = () => {
             brands and get special promo codes.
           </p>
         </li>
-        <li>how to buy</li>
+        <li>
+          how to buy
+          <p>
+            Keep up to date with the latest product launches and news. Find out more about our
+            brands and get special promo codes.
+          </p>
+        </li>
         <li>help</li>
         <li>services</li>
         <li>about</li>
