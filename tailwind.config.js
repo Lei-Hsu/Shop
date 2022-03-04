@@ -24,6 +24,7 @@ module.exports = {
       'platinum': '#EAECEE',
       'platinum2': '#F6F8FB',
       'light-blue': '#E6EFFB',
+      'footer-gary':'#B5CBEF'
     },
   },
   variants: {
