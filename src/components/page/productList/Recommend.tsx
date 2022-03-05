@@ -9,6 +9,7 @@ const mockData = [
     pdpImage: pdpCardImage,
     discountPercent: 50,
     categories: 'Brand Name',
+    isFollow: false,
     itemId: '23424X',
     productName: 'LED Diall A60 bulb transparent warm color',
     desc: ['Bulb thread type : E27', 'Maximum bulb power : 4.5W', 'Luminous flux : 470lm'],
@@ -21,6 +22,7 @@ const mockData = [
     pdpImage: pdpCardImage,
     discountPercent: 50,
     categories: 'Brand Name',
+    isFollow: true,
     itemId: '23424X',
     productName: 'LED Diall A60 bulb transparent warm color',
     desc: ['Bulb thread type : E27', 'Maximum bulb power : 4.5W', 'Luminous flux : 470lm'],
@@ -33,6 +35,7 @@ const mockData = [
     pdpImage: pdpCardImage,
     discountPercent: 50,
     categories: 'Brand Name',
+    isFollow: false,
     itemId: '23424X',
     productName: 'LED Diall A60 bulb transparent warm color',
     desc: ['Bulb thread type : E27', 'Maximum bulb power : 4.5W', 'Luminous flux : 470lm'],
@@ -45,11 +48,12 @@ const mockData = [
     pdpImage: pdpCardImage,
     discountPercent: 50,
     categories: 'Brand Name',
+    isFollow: true,
     itemId: '23424X',
     productName: 'LED Diall A60 bulb transparent warm color',
     desc: ['Bulb thread type : E27', 'Maximum bulb power : 4.5W', 'Luminous flux : 470lm'],
     price: '45.00',
-    quantity: 2,
+    quantity: 0,
     unit: 'item',
     unitOptions: [{ value: 'item', text: 'item' }],
   },
@@ -58,17 +62,18 @@ const mockData = [
 const Recommend = () => {
   return (
     <div className="h-full w-full">
-      Recommend
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-4 gap-14">
         {mockData &&
           mockData.map((item, index) => (
             <PdpCard
               key={`${index}${item.itemId}`}
               pdpImage={item.pdpImage}
               categories={item.categories}
+              isFollow={item.isFollow}
               itemId={item.itemId}
               productName={item.productName}
               price={item.price}
+              desc={item.desc}
               discountPercent={item?.discountPercent}
               quantity={item.quantity}
               unit={item.unit}

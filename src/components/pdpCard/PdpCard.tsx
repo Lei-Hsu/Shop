@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Input, Select } from 'antd';
 import Image from 'next/image';
@@ -6,10 +6,12 @@ import Image from 'next/image';
 import Button from '@Components/button';
 
 import addFavImage from '@Images/pdpCard/addFavourites.svg';
-import checkImage from '@Images/pdpCard/checkCircle.svg';
+import availableImage from '@Images/pdpCard/available.svg';
 import compareImage from '@Images/pdpCard/compare.svg';
+import isFavImage from '@Images/pdpCard/isFavourites.svg';
 import pdpCardImage from '@Images/pdpCard/productImage.svg';
 import shareImage from '@Images/pdpCard/share.svg';
+import unavailableImage from '@Images/pdpCard/unavailable.svg';
 
 interface SelectProps {
   value: string | number;
@@ -20,15 +22,28 @@ interface PdpCardProps {
   pdpImage: string;
   discountPercent?: number;
   categories: string;
+  isFollow: boolean;
   itemId: string;
   productName: string;
   desc?: string[];
   price: string;
+  /**
+   * 商品庫存量
+   */
   quantity: number;
+  /**
+   * 商品單位
+   */
   unit: string;
   unitOptions: SelectProps[];
+  /**
+   * 商品描述
+   */
   details?: string;
   detailsOptions?: SelectProps[];
+  /**
+   * 商品附件描述
+   */
   attachment?: string;
   attachmentOptions?: SelectProps[];
 }
@@ -37,6 +52,7 @@ const PdpCard = ({
   pdpImage = pdpCardImage,
   discountPercent,
   categories,
+  isFollow,
   itemId,
   productName,
   desc,
@@ -51,7 +67,13 @@ const PdpCard = ({
 }: PdpCardProps) => {
   const { Option } = Select;
 
+  const [tempIsFollow, setTempIsFollow] = useState<boolean>(isFollow);
+
   const discount = 100 - discountPercent;
+
+  const handleChangeFollow = () => {
+    setTempIsFollow((prev) => !prev);
+  };
 
   return (
     <div className="h-auto w-[300px] rounded-lg border border-platinum">
@@ -64,14 +86,17 @@ const PdpCard = ({
           </div>
         )}
 
-        <div className="absolute top-5 right-5 cursor-pointer">
-          <Image src={addFavImage} />
+        <div className="absolute top-5 right-5 cursor-pointer" onClick={handleChangeFollow}>
+          {tempIsFollow ? (
+            <Image src={isFavImage} height={28} width={28} />
+          ) : (
+            <Image src={addFavImage} height={28} width={28} />
+          )}
         </div>
-        <div className="absolute bottom-4 left-3 flex items-center space-x-1 rounded-sm border border-platinum px-1 text-bright-green">
-          <Image src={checkImage} />
-          <span>In stock</span>
+        <div className="absolute bottom-4 left-3">
+          {quantity > 0 ? <Image src={availableImage} /> : <Image src={unavailableImage} />}
         </div>
-        <div className="absolute bottom-3 right-3">
+        <div className="absolute bottom-3 right-3 cursor-pointer">
           <Image src={compareImage} />
           <Image src={shareImage} />
         </div>
@@ -94,7 +119,7 @@ const PdpCard = ({
           <div className="flex space-x-2">
             <Input
               className="w-1/2 rounded-md text-center"
-              defaultValue={quantity}
+              defaultValue={0}
               style={{ width: '40%' }}
             />
             <Select defaultValue={unit} style={{ width: '60%' }}>
