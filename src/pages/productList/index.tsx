@@ -1,7 +1,7 @@
 import React from 'react';
 
 import List from '@Components/page/productList/List';
-import SideBar from '@Components/page/productList/sideBar';
+import SideBar from '@Components/page/productList/SideBar';
 
 const ProductList = () => {
   return (
