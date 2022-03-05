@@ -5,6 +5,7 @@ import Layout from '@Components/layout';
 import store from '@Redux/store';
 
 import '../styles/globals.scss';
+import 'antd/dist/antd.css';
 
 import type { AppProps } from 'next/app';
 

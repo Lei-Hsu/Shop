@@ -22,7 +22,7 @@ const Button = ({ text, color = 'blue', onClick }: ButtonProps) => {
         )}`}
         onClick={onClick}
       >
-        <p className="text-white">{text}</p>
+        <p className="m-0 text-white">{text}</p>
       </div>
     </>
   );
