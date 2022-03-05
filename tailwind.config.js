@@ -25,6 +25,7 @@ module.exports = {
       platinum2: '#F6F8FB',
       'light-blue': '#E6EFFB',
       'footer-gary': '#B5CBEF',
+      'bright-green': '#00893A',
     },
     fontSize: {
       h3: ['20px', { lineHeight: '26px' }],
