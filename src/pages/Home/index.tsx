@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 
-import { Button, Checkbox, Input } from 'antd';
+import { Button } from 'antd';
 import Image from 'next/image';
 
+import Article from '@Components/articleCard';
+import CategoryCard from '@Components/categoryCard';
 import PdpCard from '@Components/pdpCard/PdpCard';
 import ShowMore from '@Components/showMore';
 import Slider from '@Components/slider';
 
 import pdpCardImage from '@Images/pdpCard/productImage.svg';
 import testImg from '@Images/testImg.jpg';
+import testImg2 from '@Images/testImg2.png';
 
 function Home() {
   const mockData = [
@@ -126,12 +129,72 @@ function Home() {
         </Button>
       </div>
       {/* categoryList */}
-      <div className="my-8 px-20 text-title">Recommended Categories</div>
+      <div className="my-8 flex justify-between px-20 text-title">
+        Recommended Categories <ShowMore text={'Show all Categories'} />
+      </div>
+      <div className=" my-8 flex px-20">
+        {mockData &&
+          mockData.map((item, index) => (
+            <div className="mx-2">
+              <CategoryCard categoryImg={item.pdpImage} text={item.categories}></CategoryCard>
+            </div>
+          ))}
+      </div>
       {/* article  */}
-      <div className="my-8 px-20 text-title">Hints for you</div>
-      {/* PDP ABOUT  */}
+      <div className="my-8 flex justify-between px-20 text-title">
+        Hints for you
+        <ShowMore text={'Show all Hints'} />
+      </div>
+      <div className="my-8 flex px-20">
+        {mockData &&
+          mockData.map((item, index) => (
+            <div className="mx-2">
+              <Article
+                showMore={'text'}
+                articleImg={testImg2}
+                text={
+                  'Are you standing on the threshold of your own "M", to which you have just picked up the keys, and with the eye...'
+                }
+                title={'How much does it cost to finish an apartment?'}
+              ></Article>
+            </div>
+          ))}
+      </div>
+
+      {/* banner2  */}
+      <div className="flex h-[350px] w-full items-center justify-around bg-light-gray px-20">
+        <div className="w-[500px] ">
+          <h3 className="text-h3 font-bold ">DPD delivery already available!</h3>
+          <p className="footer-text my-4   w-64 ">
+            Choose DPD for speed, ease and convenience. Track your parcel in real time. This will
+            help you plan your work while waiting for the parcel.
+          </p>
+          <Button type="primary" shape="round">
+            Check offer
+          </Button>
+        </div>
+        <Image src={testImg} height={300} width={300} />
+      </div>
       {/* article2  */}
-      <div className="my-8 px-20 text-title">Events for you</div>
+      <div className="my-8 flex justify-between px-20 text-title">
+        Events for you
+        <ShowMore text={'Show all Events'} />
+      </div>
+      <div className="my-8 flex px-20">
+        {mockData &&
+          mockData.map((item, index) => (
+            <div className="mx-2">
+              <Article
+                showMore={'button'}
+                articleImg={testImg2}
+                text={
+                  'Are you standing on the threshold of your own "M", to which you have just picked up the keys, and with the eye...'
+                }
+                title={'How much does it cost to finish an apartment?'}
+              ></Article>
+            </div>
+          ))}
+      </div>
     </>
   );
 }
