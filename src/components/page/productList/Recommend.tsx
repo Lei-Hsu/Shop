@@ -6,6 +6,7 @@ import pdpCardImage from '@Images/pdpCard/productImage.svg';
 
 const mockData = [
   {
+    type: 'vertical',
     pdpImage: pdpCardImage,
     discountPercent: 50,
     categories: 'Brand Name',
@@ -19,6 +20,7 @@ const mockData = [
     unitOptions: [{ value: 'item', text: 'item' }],
   },
   {
+    type: 'vertical',
     pdpImage: pdpCardImage,
     discountPercent: 50,
     categories: 'Brand Name',
@@ -32,6 +34,7 @@ const mockData = [
     unitOptions: [{ value: 'item', text: 'item' }],
   },
   {
+    type: 'vertical',
     pdpImage: pdpCardImage,
     discountPercent: 50,
     categories: 'Brand Name',
@@ -45,6 +48,7 @@ const mockData = [
     unitOptions: [{ value: 'item', text: 'item' }],
   },
   {
+    type: 'vertical',
     pdpImage: pdpCardImage,
     discountPercent: 50,
     categories: 'Brand Name',
@@ -66,6 +70,7 @@ const Recommend = () => {
         {mockData &&
           mockData.map((item, index) => (
             <PdpCard
+              type={item.type as 'vertical' | 'level'}
               key={`${index}${item.itemId}`}
               pdpImage={item.pdpImage}
               categories={item.categories}
