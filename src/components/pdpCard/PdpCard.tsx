@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { Input, Select } from 'antd';
+import { BuildManifest } from 'next/dist/server/get-page-files';
 import Image from 'next/image';
 
 import Button from '@Components/button';
@@ -105,7 +106,7 @@ const PdpCard = ({
           {categories} | Part No.{itemId}
         </span>
         <h3 className="text-h3">{productName}</h3>
-        {desc && desc.map((item: string) => <p>{item}</p>)}
+        {desc && desc.map((item: string, index: number) => <p key={`$${index}${item}`}>{item}</p>)}
       </section>
       {/* price & cart */}
       <section className="p-2">
@@ -122,8 +123,10 @@ const PdpCard = ({
             />
             <Select defaultValue={unit} style={{ width: '60%' }}>
               {unitOptions &&
-                unitOptions.map((item: SelectProps) => (
-                  <Option value={item.value}>{item.text}</Option>
+                unitOptions.map((item: SelectProps, index: number) => (
+                  <Option key={`${item.value}${index}`} value={item.value}>
+                    {item.text}
+                  </Option>
                 ))}
             </Select>
           </div>
@@ -131,15 +134,19 @@ const PdpCard = ({
           <div className="flex">
             {details && detailsOptions && (
               <Select defaultValue={details} style={{ width: '50%' }}>
-                {detailsOptions.map((item: SelectProps) => (
-                  <Option value={item.value}>{item.text}</Option>
+                {detailsOptions.map((item: SelectProps, index: number) => (
+                  <Option key={`${item.value}${index}`} value={item.value}>
+                    {item.text}
+                  </Option>
                 ))}
               </Select>
             )}
             {attachment && attachmentOptions && (
               <Select defaultValue={attachment} style={{ width: '50%' }}>
-                {attachmentOptions.map((item: SelectProps) => (
-                  <Option value={item.value}>{item.text}</Option>
+                {attachmentOptions.map((item: SelectProps, index: number) => (
+                  <Option key={`${item.value}${index}`} value={item.value}>
+                    {item.text}
+                  </Option>
                 ))}
               </Select>
             )}

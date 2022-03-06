@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Button } from 'antd';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import Article from '@Components/articleCard';
 import CategoryCard from '@Components/categoryCard';
@@ -14,6 +15,7 @@ import testImg from '@Images/testImg.jpg';
 import testImg2 from '@Images/testImg2.png';
 
 function Home() {
+  const router = useRouter();
   const mockData = [
     {
       type: 'vertical',
@@ -90,7 +92,11 @@ function Home() {
       </div>
       {/* productList  */}
       <div className="my-8 flex justify-between px-20 text-title">
-        Recommended products <ShowMore text={'Show all Recommended products'} />
+        Recommended products{' '}
+        <ShowMore
+          text={'Show all Recommended products'}
+          onClick={() => router.push('/productList')}
+        />
       </div>
       <div className=" my-8 flex px-20">
         {mockData &&
