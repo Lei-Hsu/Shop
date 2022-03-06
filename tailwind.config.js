@@ -28,7 +28,9 @@ module.exports = {
         'bright-green': '#00893A',
       },
       fontSize: {
+        'h1': ['36px', { lineHeight: '46.8px' }],
         h3: ['20px', { lineHeight: '26px' }],
+        '16-24': ['16px', { lineHeight: '24px' }],
         'footer-text': ['14px', { lineHeight: '23.8px' }],
         'social-icon-size': ['24px'],
       },
@@ -37,5 +39,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: ['tailwindcss', 'postcss-preset-env'],
+  plugins: ['tailwindcss', 'postcss-preset-env', require('@tailwindcss/line-clamp')],
 };

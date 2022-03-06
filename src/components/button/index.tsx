@@ -2,14 +2,19 @@ import React from 'react';
 
 interface ButtonProps {
   text: string;
-  color: 'blue';
+  color: 'blue' | 'white';
+  textStyle?: string;
   onClick?: () => {};
 }
 
-const Button = ({ text, color = 'blue', onClick }: ButtonProps) => {
+const Button = ({ text, color = 'blue', textStyle = 'text-white', onClick }: ButtonProps) => {
   const buttonColor = (color) => {
     switch (color) {
       case 'blue':
+        return 'bg-main-blue';
+      case 'white':
+        return 'bg-white';
+      default:
         return 'bg-main-blue';
     }
   };
@@ -22,7 +27,7 @@ const Button = ({ text, color = 'blue', onClick }: ButtonProps) => {
         )}`}
         onClick={onClick}
       >
-        <p className="m-0 text-white">{text}</p>
+        <p className={`m-0 ${textStyle}`}>{text}</p>
       </div>
     </>
   );

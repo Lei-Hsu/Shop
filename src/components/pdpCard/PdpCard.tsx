@@ -78,11 +78,7 @@ const PdpCard = ({
   };
 
   return (
-    <div
-      className={`h-auto rounded-lg border border-platinum ${
-        type === 'level' ? 'flex w-[943px]' : 'w-[300px]'
-      }`}
-    >
+    <div className={`h-auto rounded-lg border border-platinum ${type === 'level' ? 'flex' : ''}`}>
       {/* image */}
       <div className="relative">
         <Image src={pdpImage} />
