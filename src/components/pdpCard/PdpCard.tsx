@@ -19,6 +19,7 @@ interface SelectProps {
 }
 
 interface PdpCardProps {
+  type: 'vertical' | 'level';
   pdpImage: string;
   discountPercent?: number;
   categories: string;
@@ -49,6 +50,7 @@ interface PdpCardProps {
 }
 
 const PdpCard = ({
+  type = 'vertical',
   pdpImage = pdpCardImage,
   discountPercent,
   categories,
@@ -76,7 +78,11 @@ const PdpCard = ({
   };
 
   return (
-    <div className="h-auto w-[300px] rounded-lg border border-platinum">
+    <div
+      className={`h-auto rounded-lg border border-platinum ${
+        type === 'level' ? 'flex w-[943px]' : 'w-[300px]'
+      }`}
+    >
       {/* image */}
       <div className="relative">
         <Image src={pdpImage} />
@@ -87,14 +93,10 @@ const PdpCard = ({
         )}
 
         <div className="absolute top-5 right-5 cursor-pointer" onClick={handleChangeFollow}>
-          {tempIsFollow ? (
-            <Image src={isFavImage} height={28} width={28} />
-          ) : (
-            <Image src={addFavImage} height={28} width={28} />
-          )}
+          <Image src={tempIsFollow ? isFavImage : addFavImage} height={28} width={28} />
         </div>
         <div className="absolute bottom-4 left-3">
-          {quantity > 0 ? <Image src={availableImage} /> : <Image src={unavailableImage} />}
+          <Image src={quantity > 0 ? availableImage : unavailableImage} />
         </div>
         <div className="absolute bottom-3 right-3 cursor-pointer">
           <Image src={compareImage} />
