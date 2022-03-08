@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 
 import { Checkbox } from 'antd';
-
+import { Slider } from 'antd';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
 
 interface FilterProps {
+  key: string;
   groupName: string;
   checkOption: string[];
   checkValue: string[];
 }
 [];
 
-const FilterGroup = ({ groupName, checkOption, checkValue }) => {
+const FilterGroup = ({ groupName, checkOption, checkValue }: FilterProps) => {
   const CheckboxGroup = Checkbox.Group;
 
   const [openFilter, setOpenFilter] = useState<boolean>(true);
-
+  const [val, setVal] = useState([]);
   const OpenFilterIcon = () => {
     return openFilter ? (
       <UpOutlined style={{ color: '#1071FF' }} />
@@ -34,7 +35,19 @@ const FilterGroup = ({ groupName, checkOption, checkValue }) => {
           </div>
         </div>
         <div className="w-20">
-          {openFilter && <CheckboxGroup options={checkOption} value={checkValue} />}
+          {openFilter && (
+            <>
+              <Slider defaultValue={[0, 100]} range />
+              <CheckboxGroup
+                options={checkOption}
+                value={val}
+                onChange={(el) => {
+                  console.log(el);
+                  setVal(el);
+                }}
+              />
+            </>
+          )}
         </div>
       </div>
     </>
@@ -47,6 +60,7 @@ const Filter = ({ mockData }) => {
       {mockData &&
         mockData.map((item) => (
           <FilterGroup
+            key={item.id}
             groupName={item.groupName}
             checkOption={item.checkOption}
             checkValue={item.checkValue}

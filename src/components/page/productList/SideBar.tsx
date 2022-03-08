@@ -6,16 +6,19 @@ import Filter from '@Components/filter';
 
 const mockData = [
   {
+    id: '1',
     groupName: 'Filter group',
-    checkOption: ['categories1', 'categories1', 'categories3'],
+    checkOption: ['categories1', 'categories2', 'categories3'],
     checkValue: [],
   },
   {
+    id: '2',
     groupName: 'Filter group',
     checkOption: ['categories4', 'categories5', 'categories6'],
     checkValue: [],
   },
   {
+    id: '3',
     groupName: 'Filter group',
     checkOption: ['categories7', 'categories8', 'categories9'],
     checkValue: [],
