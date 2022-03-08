@@ -11,25 +11,7 @@ interface FilterProps {
 }
 [];
 
-const mockData = [
-  {
-    groupName: 'Filter group',
-    checkOption: ['categories1', 'categories1', 'categories3'],
-    checkValue: [],
-  },
-  {
-    groupName: 'Filter group',
-    checkOption: ['categories4', 'categories5', 'categories6'],
-    checkValue: [],
-  },
-  {
-    groupName: 'Filter group',
-    checkOption: ['categories7', 'categories8', 'categories9'],
-    checkValue: [],
-  },
-];
-
-const FilterGroup = ({ mockData }) => {
+const FilterGroup = ({ groupName, checkOption, checkValue }) => {
   const CheckboxGroup = Checkbox.Group;
 
   const [openFilter, setOpenFilter] = useState<boolean>(true);
@@ -44,28 +26,32 @@ const FilterGroup = ({ mockData }) => {
 
   return (
     <>
-      {mockData &&
-        mockData?.map((item) => (
-          <div className="mb-10">
-            <div className="flex items-center justify-between">
-              <h3 className="text-h3">{item.groupName}</h3>
-              <div className="cursor-pointer" onClick={() => setOpenFilter((prev) => !prev)}>
-                <OpenFilterIcon />
-              </div>
-            </div>
-            <div className="w-20">
-              {openFilter && <CheckboxGroup options={item.checkOption} value={item.checkValue} />}
-            </div>
+      <div className="mb-10">
+        <div className="flex items-center justify-between">
+          <h3 className="text-h3">{groupName}</h3>
+          <div className="cursor-pointer" onClick={() => setOpenFilter((prev) => !prev)}>
+            <OpenFilterIcon />
           </div>
-        ))}
+        </div>
+        <div className="w-20">
+          {openFilter && <CheckboxGroup options={checkOption} value={checkValue} />}
+        </div>
+      </div>
     </>
   );
 };
 
-const Filter = () => {
+const Filter = ({ mockData }) => {
   return (
     <div>
-      <FilterGroup mockData={mockData} />
+      {mockData &&
+        mockData.map((item) => (
+          <FilterGroup
+            groupName={item.groupName}
+            checkOption={item.checkOption}
+            checkValue={item.checkValue}
+          />
+        ))}
     </div>
   );
 };
