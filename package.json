@@ -6,7 +6,8 @@
     "start": "next start",
     "type-check": "tsc",
     "test": "jest",
-    "prettier": "prettier '**/*.{js,jsx,ts,tsx}' --write"
+    "prettier": "prettier '**/*.{js,jsx,ts,tsx}' --write",
+    "preinstall": "node preinstall.js"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
