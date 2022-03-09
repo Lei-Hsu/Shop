@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Button } from 'antd';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+
+import { useAppDispatch } from '@Hooks/hooks';
 
 import Article from '@Components/articleCard';
 import CategoryCard from '@Components/categoryCard';
@@ -13,8 +15,10 @@ import Slider from '@Components/slider';
 import pdpCardImage from '@Images/pdpCard/productImage.svg';
 import testImg from '@Images/testImg.jpg';
 import testImg2 from '@Images/testImg2.png';
+import { getAllProduct } from '@Redux/slices/homeSlice';
 
 function Home() {
+  const dispatch = useAppDispatch();
   const router = useRouter();
   const mockData = [
     {
@@ -83,6 +87,10 @@ function Home() {
     <div className="flex h-16 w-52 items-center justify-center">Barands5</div>,
     <div className="flex h-16 w-52 items-center justify-center">Barands6</div>,
   ];
+
+  useEffect(() => {
+    dispatch(getAllProduct());
+  }, []);
   return (
     <>
       {/* Barands */}

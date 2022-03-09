@@ -21,7 +21,9 @@
       "@Pages/*": ["pages/*"],
       "@Components/*": ["components/*"],
       "@Images/*": ["images/*"],
-      "@Style/*": ["styles/*"]
+      "@Style/*": ["styles/*"],
+      "@Axios/*": ["axios/*"],
+      "@Interface/*": ["interface/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
